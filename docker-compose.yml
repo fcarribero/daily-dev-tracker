@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+      - "80"
+    volumes:
+      - ./:/var/www/html/
+      - ./apache.conf:/etc/apache2/sites-available/000-default.conf
+      - ./php.ini:/usr/local/etc/php/php.ini
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+    driver: local
