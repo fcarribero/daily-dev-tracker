@@ -4,6 +4,7 @@ services:
     build: .
     ports:
       - "80"
+    command: ["sh","-lc","npm ci && npm run build && apache2-foreground"]
     volumes:
       - ./:/var/www/html/
       - ./apache.conf:/etc/apache2/sites-available/000-default.conf

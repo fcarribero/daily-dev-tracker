@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+/* @import 'tailwindcss';  Desactivado por ahora si no usas Tailwind */
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -8,4 +8,46 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Botón estilo AI (tipo rainbow) */
+.btn-ai {
+    --ai-shadow: rgba(255, 255, 255, 0.35);
+    color: #fff !important;
+    border: 0 !important;
+    background: linear-gradient(
+        90deg,
+        #ff6a00,
+        #ff3cac,
+        #784ba0,
+        #2b86c5,
+        #20e3b2,
+        #ffd166,
+        #ff6a00
+    );
+    background-size: 300% 300%;
+    animation: ai-rainbow 8s linear infinite;
+    box-shadow: 0 0 0.5rem var(--ai-shadow), 0 0 1.25rem rgba(32, 227, 178, 0.25);
+}
+
+.btn-ai:hover,
+.btn-ai:focus {
+    filter: brightness(1.05) saturate(1.1);
+    box-shadow: 0 0 0.75rem var(--ai-shadow), 0 0 1.5rem rgba(32, 227, 178, 0.35);
+}
+
+.btn-ai:active {
+    filter: brightness(0.95);
+}
+
+/* Mantener proporciones de Bootstrap .btn y .btn-sm */
+.btn-ai.btn,
+.btn-ai.btn-sm {
+    border-radius: 999px; /* pill look */
+}
+
+@keyframes ai-rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

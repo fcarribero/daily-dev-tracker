@@ -39,7 +39,7 @@
                     <form method="post" action="{{ route('entries.summary') }}">
                         @csrf
                         <input type="hidden" name="date" value="{{ $date }}">
-                        <button type="submit" class="btn btn-sm btn-success">Generar Daily (Hoy/Ayer)</button>
+                        <button type="submit" class="btn btn-sm btn-ai">🤖 Generar Daily</button>
                     </form>
                     @endif
                 </div>
