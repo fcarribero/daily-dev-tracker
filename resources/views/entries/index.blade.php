@@ -110,7 +110,7 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        <textarea class="form-control" rows="6" readonly style="white-space: pre;">{{ session('summary') }}</textarea>
+                        {!! \Illuminate\Support\Str::markdown(session('summary'), ['html_input' => 'strip', 'allow_unsafe_links' => false]) !!}
                     </div>
                 </div>
             @endif
